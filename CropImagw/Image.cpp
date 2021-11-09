@@ -1,3 +1,5 @@
+//https://www.youtube.com/c/CodeBreakChannel/about
+
 #define STB_IMAGE_IMPLEMENTATION
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #define BYTE_BOUND(value) value < 0 ? 0 : (value > 255 ? 255 : value)
@@ -102,7 +104,7 @@ Image& Image::crop(uint16_t cx, uint16_t cy, uint16_t cw, uint16_t ch) {
 
 	return *this;
 }
-
+//Nandita
 void Image::GetBoundingBox()
 {
 	vector<int> xVals;
