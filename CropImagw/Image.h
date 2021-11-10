@@ -1,15 +1,9 @@
 #include <stdint.h>
 #include <cstdio>
 
-
-#define STEG_HEADER_SIZE sizeof(uint32_t) * 8
-
 enum ImageType {
 	PNG, JPG, BMP, TGA
 };
-
-struct Font;
-
 
 struct Image {
 	uint8_t* data = NULL;
