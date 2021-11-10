@@ -1,6 +1,5 @@
 #include "Image.h"
 
-
 int main(int argc, char** argv) {
 	Image test("Images/fozzie-in.bmp");
 	test.write("Images/test.bmp");
@@ -10,6 +9,7 @@ int main(int argc, char** argv) {
 	//copyImg.write("Images/croptest.bmp");
 
 	Image copyImg("Images/test.bmp");
+	//Image copyImg = test;
 	
 	copyImg.GetBoundingBox();
 	copyImg.write("Images/croptest.bmp");
