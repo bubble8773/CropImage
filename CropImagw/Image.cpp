@@ -15,8 +15,7 @@ using namespace std;
 Image::Image(const char* filename) {
 	if(read(filename)) {
 		printf("Read %s\n", filename);
-		size = w*h*channels;
-		
+		size = w*h*channels;		
 	}
 	else {
 		printf("Failed to read %s\n", filename);
@@ -97,20 +96,20 @@ Image& Image::crop(uint16_t cx, uint16_t cy, uint16_t cw, uint16_t ch) {
 	w = cw;
 	h = ch;
 	
-
 	delete[] data;
 	data = croppedImage;
 	croppedImage = nullptr;
 
 	return *this;
 }
+
 //Nandita
 void Image::GetBoundingBox()
 {
 	vector<int> xVals;
 	vector<int> yVals;
 	//Find a center pixel
-    //find the height
+        //find the height
 	//find the width
 	for (uint16_t y = 0; y < h; ++y) {
 		
@@ -121,12 +120,9 @@ void Image::GetBoundingBox()
 				xVals.push_back(x);
 				yVals.push_back(y);
 				break;
-
-			}
+			}		
 			
-						
-		}
-		
+		}		
 	}
 
 	for (uint16_t y = h-1; y >= 1; --y) {
@@ -139,23 +135,23 @@ void Image::GetBoundingBox()
 				yVals.push_back(y);
 				break;
 			}
-
-
 		}
-
 	}
+	
 	auto maxX = *max_element(xVals.begin(), xVals.end());
 	auto minX = *min_element(xVals.begin(), xVals.end());
 	auto maxY = *max_element(yVals.begin(), yVals.end());
 	auto minY = *min_element(yVals.begin(), yVals.end());
 
-	cout << maxX<<endl;
-	cout << minX;
-	cout << maxY << endl;
-	cout << minY;
+	//cout << maxX<<endl;
+	//cout << minX<<endl;
+	//cout << maxY << endl;
+	//cout << minY<<endl;
+	//Center or offset is (minX, minY)
+	//height = maxY-minY
+	//width = maxX-minX
 	
 	crop(minX, minY, maxX-minX, maxY-minY);
-
 }
 
 
